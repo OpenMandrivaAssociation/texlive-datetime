@@ -1,3 +1,9 @@
+# revision 19834
+# category Package
+# catalog-ctan /macros/latex/contrib/datetime
+# catalog-date 2010-09-21 11:20:39 +0200
+# catalog-license lppl1.3
+# catalog-version 2.58
 Name:		texlive-datetime
 Version:	2.58
 Release:	1
@@ -99,6 +105,7 @@ requires the fmtcount package.
 %doc %{_texmfdistdir}/source/latex/datetime/datetime.dtx
 %doc %{_texmfdistdir}/source/latex/datetime/datetime.ins
 %doc %{_texmfdistdir}/source/latex/datetime/datetime.perl
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -109,3 +116,5 @@ requires the fmtcount package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
