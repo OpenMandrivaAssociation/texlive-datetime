@@ -1,12 +1,12 @@
-# revision 19834
+# revision 31622
 # category Package
 # catalog-ctan /macros/latex/contrib/datetime
-# catalog-date 2010-09-21 11:20:39 +0200
+# catalog-date 2013-09-10 21:28:15 +0200
 # catalog-license lppl1.3
-# catalog-version 2.58
+# catalog-version 2.59
 Name:		texlive-datetime
-Version:	2.58
-Release:	2
+Version:	2.59
+Release:	1
 Summary:	Change format of \today with commands for current time
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/datetime
@@ -38,16 +38,20 @@ requires the fmtcount package.
 
 #-----------------------------------------------------------------------
 %files
+%{_texmfdistdir}/scripts/latex/datetime/datetime.perl
+%{_texmfdistdir}/tex/latex/datetime/datetime-defaults.sty
 %{_texmfdistdir}/tex/latex/datetime/datetime.sty
 %{_texmfdistdir}/tex/latex/datetime/dt-UKenglish.def
 %{_texmfdistdir}/tex/latex/datetime/dt-USenglish.def
 %{_texmfdistdir}/tex/latex/datetime/dt-american.def
+%{_texmfdistdir}/tex/latex/datetime/dt-australian.def
 %{_texmfdistdir}/tex/latex/datetime/dt-austrian.def
 %{_texmfdistdir}/tex/latex/datetime/dt-bahasa.def
 %{_texmfdistdir}/tex/latex/datetime/dt-basque.def
 %{_texmfdistdir}/tex/latex/datetime/dt-breton.def
 %{_texmfdistdir}/tex/latex/datetime/dt-british.def
 %{_texmfdistdir}/tex/latex/datetime/dt-bulgarian.def
+%{_texmfdistdir}/tex/latex/datetime/dt-canadian.def
 %{_texmfdistdir}/tex/latex/datetime/dt-catalan.def
 %{_texmfdistdir}/tex/latex/datetime/dt-croatian.def
 %{_texmfdistdir}/tex/latex/datetime/dt-czech.def
@@ -68,6 +72,7 @@ requires the fmtcount package.
 %{_texmfdistdir}/tex/latex/datetime/dt-lsorbian.def
 %{_texmfdistdir}/tex/latex/datetime/dt-magyar.def
 %{_texmfdistdir}/tex/latex/datetime/dt-naustrian.def
+%{_texmfdistdir}/tex/latex/datetime/dt-newzealand.def
 %{_texmfdistdir}/tex/latex/datetime/dt-ngerman.def
 %{_texmfdistdir}/tex/latex/datetime/dt-norsk.def
 %{_texmfdistdir}/tex/latex/datetime/dt-polish.def
@@ -91,10 +96,13 @@ requires the fmtcount package.
 %doc %{_texmfdistdir}/doc/latex/datetime/datetime-manual.html
 %doc %{_texmfdistdir}/doc/latex/datetime/datetime-manual.tex
 %doc %{_texmfdistdir}/doc/latex/datetime/datetime.pdf
+%doc %{_texmfdistdir}/doc/latex/datetime/samples/dt-lang.pdf
+%doc %{_texmfdistdir}/doc/latex/datetime/samples/dt-lang.tex
+%doc %{_texmfdistdir}/doc/latex/datetime/samples/dt-sampl.pdf
+%doc %{_texmfdistdir}/doc/latex/datetime/samples/dt-sampl.tex
 #- source
 %doc %{_texmfdistdir}/source/latex/datetime/datetime.dtx
 %doc %{_texmfdistdir}/source/latex/datetime/datetime.ins
-%doc %{_texmfdistdir}/source/latex/datetime/datetime.perl
 
 #-----------------------------------------------------------------------
 %prep
@@ -104,18 +112,4 @@ requires the fmtcount package.
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 2.58-2
-+ Revision: 750864
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 2.58-1
-+ Revision: 718206
-- texlive-datetime
-- texlive-datetime
-- texlive-datetime
-- texlive-datetime
-
+cp -fpar scripts tex doc source %{buildroot}%{_texmfdistdir}
