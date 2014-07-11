@@ -6,7 +6,7 @@
 # catalog-version 2.59
 Name:		texlive-datetime
 Version:	2.59
-Release:	6
+Release:	7
 Summary:	Change format of \today with commands for current time
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/datetime
