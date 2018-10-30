@@ -1,6 +1,6 @@
 Name:		texlive-datetime
 Version:	2.60
-Release:	1
+Release:	2
 Summary:	Change format of \today with commands for current time
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/datetime
