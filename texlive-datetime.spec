@@ -3,7 +3,7 @@ Version:	36650
 Release:	2
 Summary:	Change format of \today with commands for current time
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/datetime
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/datetime
 License:	LPPL1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.doc.r%{version}.tar.xz
