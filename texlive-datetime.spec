@@ -1,49 +1,28 @@
-Name:		texlive-datetime
-Version:	36650
-Release:	2
+%global tl_name datetime
+%global tl_revision 36650
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.60
+Release:	%{tl_revision}.1
 Summary:	Change format of \today with commands for current time
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/datetime
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.source.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/datetime
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/datetime.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
-Requires:	texlive-fmtcount
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Provides various different formats for the text created by the
-command \today, and also provides commands for displaying the
-current time (or any given time), in 12-hour, 24-hour or text
-format. The package overrides babel's date format, having its
-own library of date formats in different languages. The package
-requires the fmtcount package.
+Provides various different formats for the text created by the command
+\today, and also provides commands for displaying the current time (or
+any given time), in 12-hour, 24-hour or text format. The package
+overrides babel's date format, having its own library of date formats in
+different languages. The package requires the fmtcount package. This
+package is now obsolete and has been replaced by datetime2.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/datetime
-%doc %{_texmfdistdir}/doc/latex/datetime
-#- source
-%doc %{_texmfdistdir}/source/latex/datetime
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
